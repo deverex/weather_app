@@ -11,22 +11,22 @@ window.addEventListener("load", () => {
   const temperatureSpan = document.querySelector(".temperature span");
 
   if (navigator.geolocation) {
-    console.log(23);
+    
     navigator.geolocation.getCurrentPosition(position => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
       const proxy = "https://cors-anywhere.herokuapp.com/";
-      console.log(13);
+      
 
-      const api = `${proxy}https://api.darksky.net/forecast/cb3d396ae400df8543bc76b2e10971e5/${lat},${long}`;
-      console.log(123);
+      const api = `https://api.darksky.net/forecast/cb3d396ae400df8543bc76b2e10971e5/${lat},${long}`;
+      
       fetch(api)
         .then(response => {
           return response.json();
         })
         .then(data => {
-          console.log(data);
+          
           const { temperature, summary, icon } = data.currently;
           //Set DOM elements from the API
           temperatureDegree.textContent = temperature;
